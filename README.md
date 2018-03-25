@@ -17,3 +17,5 @@ There are a few concepts I would like to follow when writing this program.
 3. Plugins and Themes. They are cool. Use them. Allow others to make them and distribute them easily.
 
 4. Use the Git philosophy. From the book "Zero Bugs and Program Faster": "If you've worked with Git then you know that it has simple commands, like push and pull. These are commands that are designed to be simple to use, they are the human interface, but they are somewhat limited. They are called porcelain commands, because they are easy to use. Underneath the simple and limited commands are the more complex plumbing commands, which are complex enough to allow Git to do anything".
+
+5. Documentation. Make it good. Make it readable. Use examples.
