@@ -4,6 +4,9 @@ import fs, { lstatSync } from 'fs'
 import path from 'path'
 
 import FileList from './FileList.jsx'
+import PathDisplay from './PathDisplay.jsx'
+
+import UpDirectoryButton from './UpDirectoryButton.jsx'
 
 export default class FileExplorer extends Component {
     constructor(props) {
@@ -30,6 +33,7 @@ export default class FileExplorer extends Component {
 
                 fls.push({
                     type: type,
+                    path: path.join(this.state.currentDir, file),
                     name: file
                 })
             }
@@ -40,10 +44,28 @@ export default class FileExplorer extends Component {
         })
     }
 
+    directoryChange = (dir) => {
+        this.setState({
+            currentDir: dir
+        }, () => {
+            this.getDirectoryFiles()
+        })
+    }
+
     render() {
         return (
             <div>
-                <FileList files={this.state.files} />
+                <PathDisplay
+                    currentDir={this.state.currentDir}
+                    onDirChange={this.directoryChange}/>
+
+                <UpDirectoryButton
+                    currentDir={this.state.currentDir} 
+                    onDirChange={this.directoryChange} />
+
+                <FileList 
+                    files={this.state.files} 
+                    onDirChange={this.directoryChange} />
             </div>
         )
     }
